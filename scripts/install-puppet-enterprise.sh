@@ -84,12 +84,12 @@ cd /tmp ; rm -rf ${PE_TAR} ; rm answers
 #--
 
 # Show Puppet version
-printf 'Puppet ' ; /opt/puppet/bin/puppet --version
+printf 'Puppet ' ; /opt/puppetlabs/bin/puppet --version
 
 # Installed required modules
 for i in "$@"
 do
-  /opt/puppet/bin/puppet module install $i --modulepath=/tmp/packer-puppet-masterless/manifests/modules >/dev/null 2>&1
+  /opt/puppetlabs/bin/puppet module install $i --modulepath=/tmp/packer-puppet-masterless/manifests/modules >/dev/null 2>&1
 done
 
-printf 'Modules installed in ' ; /opt/puppet/bin/puppet module list --modulepath=/tmp/packer-puppet-masterless/manifests/modules
+printf 'Modules installed in ' ; /opt/puppetlabs/bin/puppet module list --modulepath=/tmp/packer-puppet-masterless/manifests/modules

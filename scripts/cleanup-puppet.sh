@@ -9,6 +9,12 @@ if [ -n "${PUPPET_NFS}" ]; then
   umount -l /opt/puppet
 fi
 
+# Remove files if PE_URL provided
+if [ -n "${PE_URL}" ]; then
+  rm -rf /root/pe.tar.gz
+  rm -rf /root/puppet-enterprise-*
+fi
+
 # Only remove /etc/puppetlabs on -nocm boxes
 if [[ "${PACKER_BUILD_NAME}" =~ .*-nocm ]]; then
   rm -rf /etc/puppetlabs
